@@ -13,4 +13,5 @@ Route::namespace('Omatech\MageBdd\App\Http\Controllers')
     ->name('mage-bdd.')
     ->group(function ($route) {
         //routes
+        $route->get('index', 'BddController@index')->name('index');
     });

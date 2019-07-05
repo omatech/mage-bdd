@@ -3,6 +3,8 @@
 namespace Omatech\MageBdd\App\Providers;
 
 use Omatech\Mage\App\Providers\MigrationServiceProvider as MageMigrationServiceProvider;
+use Illuminate\Filesystem\Filesystem;
+
 
 class MigrationServiceProvider extends MageMigrationServiceProvider
 {
@@ -21,10 +23,16 @@ class MigrationServiceProvider extends MageMigrationServiceProvider
      */
     private function migrations()
     {
-        //$migration = __DIR__.'/../../database/migrations/migration.php.stub';
+        $create_bdd_domains_table = __DIR__.'/../../database/migrations/create_bdd_domains_table.php.stub';
+        $create_bdd_features_table = __DIR__.'/../../database/migrations/create_bdd_features_table.php.stub';
+        $create_bdd_lines_table = __DIR__.'/../../database/migrations/create_bdd_lines_table.php.stub';
+        $create_bdd_stories_table = __DIR__.'/../../database/migrations/create_bdd_stories_table.php.stub';
 
-        /*$this->publishes([
-            $migration => $this->getMigrationFileName(new Filesystem(), 'migration')
-        ]);*/
+        $this->publishes([
+            $create_bdd_domains_table => $this->getMigrationFileName(new Filesystem(), 'create_bdd_domains_table'),
+            $create_bdd_features_table => $this->getMigrationFileName(new Filesystem(), 'create_bdd_features_table'),
+            $create_bdd_lines_table => $this->getMigrationFileName(new Filesystem(), 'create_bdd_lines_table'),
+            $create_bdd_stories_table => $this->getMigrationFileName(new Filesystem(), 'create_bdd_stories_table')
+        ]);
     }
 }
