@@ -3,6 +3,7 @@
 namespace Omatech\MageBdd;
 
 use Illuminate\Support\ServiceProvider;
+use Omatech\MageBdd\App\Providers\PublishServiceProvider;
 use Omatech\MageBdd\App\Providers\ViewServiceProvider;
 use Omatech\MageBdd\App\Providers\HelperServiceProvider;
 use Omatech\MageBdd\App\Providers\CommandServiceProvider;
@@ -33,6 +34,7 @@ class MageBddServiceProvider extends ServiceProvider
             $this->app->register(MigrationServiceProvider::class);
             $this->app->register(RoutingServiceProvider::class);
             $this->app->register(ViewServiceProvider::class);
+            $this->app->register(PublishServiceProvider::class);
         }
     }
 }

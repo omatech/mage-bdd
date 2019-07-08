@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBddScenariosTable extends Migration
+class CreateBddDomainsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,11 @@ class CreateBddScenariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('bdd_scenarios', function (Blueprint $table) {
+        Schema::create('bdd_domains', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('bdd_feature_id');
-            $table->string('title');
+            $table->string('name');
             $table->timestamps();
-
-            $table->foreign('bdd_feature_id')
-                ->references('id')
-                ->on('bdd_features')
-                ->onDelete('cascade');
+            $table->softDeletes();
         });
     }
 
@@ -33,6 +28,6 @@ class CreateBddScenariosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('bdd_scenarios');
+        Schema::drop('bdd_features');
     }
 }

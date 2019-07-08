@@ -12,6 +12,7 @@ class ViewServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->views();
+
     }
 
     /**
@@ -22,5 +23,6 @@ class ViewServiceProvider extends ServiceProvider
     private function views()
     {
         $this->loadViewsFrom(__DIR__.'/../../resources/views', 'mage-bdd');
+
     }
 }

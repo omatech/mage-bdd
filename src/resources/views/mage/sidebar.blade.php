@@ -2,7 +2,7 @@
 
 @can('mage-bdd-zone', 'mage')
     <li class="nav-item">
-        <a href="{{ route('') }}" class="nav-link {{ !isRoute(['mage-bdd.dashboard']) ?: 'active' }}">
+        <a href="{{ route('mage-bdd.index') }}" class="nav-link {{ !isRoute(['mage-bdd.dashboard']) ?: 'active' }}">
         <span class="nav-icon">
             <i data-feather="message-circle"></i>
         </span>

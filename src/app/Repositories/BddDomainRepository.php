@@ -9,8 +9,12 @@
 namespace Omatech\MageBdd\App\Repositories;
 
 use Omatech\Mage\App\Repositories\BaseRepository;
+use Omatech\MageBdd\App\Models\BddDomain;
 
-class DomainRepository extends BaseRepository
+class BddDomainRepository extends BaseRepository
 {
-
+    public function model() : String
+    {
+        return BddDomain::class;
+    }
 }
