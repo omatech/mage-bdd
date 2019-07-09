@@ -17,6 +17,7 @@ class CreateBddFeaturesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('bdd_domain_id');
             $table->string('title');
+            $table->string('color')->default('primary');
             $table->timestamps();
             $table->softDeletes();
 

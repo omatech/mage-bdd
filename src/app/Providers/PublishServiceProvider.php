@@ -24,9 +24,9 @@ class PublishServiceProvider extends ServiceProvider
      */
     private function views()
     {
-        $this->publishes([
-            __DIR__.'/../../resources/views/pages/list.blade.php' => resource_path('views/vendor/mage-bdd/pages/list.blade.php'),
-        ], 'mage-bdd-views');
+//        $this->publishes([
+//            __DIR__.'/../../resources/views/pages/list.blade.php' => resource_path('views/vendor/mage-bdd/pages/list.blade.php'),
+//        ], 'mage-bdd-views');
 
     }
 

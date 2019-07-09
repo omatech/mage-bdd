@@ -24,5 +24,6 @@ class ViewServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__.'/../../resources/views', 'mage-bdd');
 
+        $this->app['view']->addNamespace('mage-bdd',  __DIR__.'/../../resources/views');
     }
 }

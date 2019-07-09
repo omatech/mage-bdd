@@ -10,7 +10,8 @@ use Omatech\MageBdd\App\Models\BddLine;
 $factory->define(BddDomain::class, function (Faker $faker) {
 
     return [
-        'name' => $faker->word
+        'name' => $faker->word,
+        'color' => $faker->randomElement(['primary', 'info', 'success', 'warning', 'danger', 'gray', 'black'])
     ];
 });
 
@@ -18,6 +19,7 @@ $factory->define(BddFeature::class, function (Faker $faker) {
 
     return [
         'title' => $faker->word,
+        'color' => $faker->randomElement(['primary', 'info', 'success', 'warning', 'danger', 'gray', 'black'])
     ];
 });
 

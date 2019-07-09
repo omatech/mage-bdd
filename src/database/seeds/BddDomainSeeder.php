@@ -17,16 +17,16 @@ class BddDomainSeeder extends Seeder
     public function run()
     {
         factory(BddDomain::class, 10)->create()->each(function ($domain) {
-            $domain->features()->saveMany(factory(BddFeature::class, 10)->make());
+            $domain->features()->saveMany(factory(BddFeature::class, random_int(3,10))->make());
 
             $domain->features()->each(function($feature){
-                $feature->scenarios()->saveMany(factory(BddScenario::class, 5)->make());
+                $feature->scenarios()->saveMany(factory(BddScenario::class, random_int(3,7))->make());
 
                 $feature->scenarios()->each(function($scenario){
-                    $scenario->lines()->saveMany(factory(BddLine::class, 5)->make());
+                    $scenario->lines()->saveMany(factory(BddLine::class, random_int(4,8))->make());
                 });
 
-                $feature->lines()->saveMany(factory(BddLine::class, 5)->make());
+                $feature->lines()->saveMany(factory(BddLine::class, random_int(4,8))->make());
 
             });
         });
