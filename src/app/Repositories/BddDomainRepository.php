@@ -17,4 +17,9 @@ class BddDomainRepository extends BaseRepository
     {
         return BddDomain::class;
     }
+
+    public function update(array $attributes, $id)
+    {
+        return $this->query()->where('id', $id)->update($attributes);
+    }
 }

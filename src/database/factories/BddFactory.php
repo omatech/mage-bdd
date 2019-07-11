@@ -11,7 +11,7 @@ $factory->define(BddDomain::class, function (Faker $faker) {
 
     return [
         'name' => $faker->word,
-        'color' => $faker->randomElement(['primary', 'info', 'success', 'warning', 'danger', 'gray', 'black'])
+        'color' => $faker->randomElement(['primary', 'info', 'success', 'warning', 'danger'])
     ];
 });
 

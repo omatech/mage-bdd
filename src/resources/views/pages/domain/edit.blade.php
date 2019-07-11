@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div class="card-body bg-dark">
-                    <form action="{{ route('mage-bdd.domain.store') }}" method="POST">
+                    <form action="{{ route('mage-bdd.domain.update', ['id' => $domain->id]) }}" method="POST">
                         @csrf
                         <div class="form-group {{ ($errors->has('name')?'validation-error':'') }}">
                             <label for="name" class="form-label">@lang('Name')</label>
@@ -30,23 +30,23 @@
                                     <label for="">Color</label>
                                     <div class="form-check">
                                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                            <label class="btn btn-outline-light active">
-                                                <input value="secondary" type="radio" name="color" id="option3" autocomplete="off"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <label class="btn btn-outline-light @if($domain->color == 'light') active @endif">
+                                                <input value="secondary" type="radio" name="color" id="option3" autocomplete="off" @if($domain->color == 'light') checked @endif> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             </label>
-                                            <label class="btn btn-outline-info">
-                                                <input value="info" type="radio" name="color" id="option1" autocomplete="off"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <label class="btn btn-outline-info @if($domain->color == 'info') active @endif">
+                                                <input value="info" type="radio" name="color" id="option1" autocomplete="off" @if($domain->color == 'info') checked @endif> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             </label>
-                                            <label class="btn btn-outline-primary">
-                                                <input value="primary" type="radio" name="color" id="option2" autocomplete="off"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <label class="btn btn-outline-primary @if($domain->color == 'primary') active @endif">
+                                                <input value="primary" type="radio" name="color" id="option2" autocomplete="off" @if($domain->color == 'primary') checked @endif> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             </label>
-                                            <label class="btn btn-outline-warning">
-                                                <input value="warning" type="radio" name="color" id="option3" autocomplete="off"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <label class="btn btn-outline-warning @if($domain->color == 'warning') active @endif">
+                                                <input value="warning" type="radio" name="color" id="option3" autocomplete="off" @if($domain->color == 'warning') checked @endif> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             </label>
-                                            <label class="btn btn-outline-danger">
-                                                <input value="danger" type="radio" name="color" id="option3" autocomplete="off"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <label class="btn btn-outline-danger @if($domain->color == 'danger') active @endif">
+                                                <input value="danger" type="radio" name="color" id="option3" autocomplete="off" @if($domain->color == 'danger') checked @endif> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             </label>
-                                            <label class="btn btn-outline-secondary">
-                                                <input value="secondary" type="radio" name="color" id="option3" autocomplete="off"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <label class="btn btn-outline-secondary @if($domain->color == 'secondary') active @endif">
+                                                <input value="secondary" type="radio" name="color" id="option3" autocomplete="off" @if($domain->color == 'secondary') checked @endif> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             </label>
                                         </div>
                                     </div>
