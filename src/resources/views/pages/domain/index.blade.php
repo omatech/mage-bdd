@@ -31,7 +31,7 @@
                                     </div>
                                 </div>
                                 <div class="card-body bg-secondary">
-                                    @foreach($domain->features->sortBy('color') as $feature)
+                                    @forelse($domain->features->sortBy('color') as $feature)
                                         @if($loop->index % 4 == 0)
                                             <div class="row">
                                         @endif
@@ -78,7 +78,20 @@
                                                 </div>
                                             @endif
                                         @endif
-                                    @endforeach
+                                    @empty
+                                        <div class="row">
+                                            <div class="col-md-3 col-sm-6 col-12">
+                                                <a class="info-box bg-dark" href="{{ route('mage-bdd.feature.create') }}">
+                                                    <span class="info-box-icon bg-primary"><i class="fa fa-plus"></i></span>
+                                                    <div class="info-box-content">
+                                                        <span class="info-box-number">@lang('New Feature')</span>
+                                                    </div>
+                                                    <!-- /.info-box-content -->
+                                                </a>
+                                                <!-- /.info-box -->
+                                            </div>
+                                        </div>
+                                    @endforelse
                                 </div>
                             </div>
                         </div>
