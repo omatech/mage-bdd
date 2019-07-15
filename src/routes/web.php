@@ -9,7 +9,7 @@
 
 Route::namespace('Omatech\MageBdd\App\Http\Controllers')
     ->prefix(config('mage.prefix'))
-    ->middleware('web')
+    ->middleware(['web', 'setLocale', 'mageRedirectIfNotAuthenticated', 'checkForPermissions:mage-access'])
     ->name('mage-bdd.')
     ->group(function ($route) {
         $route->name('domain.')->prefix('domain')->group(function($route){
@@ -22,7 +22,10 @@ Route::namespace('Omatech\MageBdd\App\Http\Controllers')
         });
         //routes
         $route->name('feature.')->prefix('feature')->group(function($route){
-            $route->get('show', 'BddFeatureController@show')->name('show');
-            $route->get('create', 'BddFeatureController@create')->name('create');
+            $route->get('create/{domain_id}', 'BddFeatureController@create')->name('create');
+            $route->post('store', 'BddFeatureController@store')->name('store');
+            $route->get('edit/{id}', 'BddFeatureController@edit')->name('edit');
+            $route->post('update/{id}', 'BddFeatureController@update')->name('update');
+            $route->get('delete/{id}', 'BddFeatureController@delete')->name('delete');
         });
     });

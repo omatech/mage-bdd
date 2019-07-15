@@ -13,6 +13,8 @@ class BddFeature extends Model
 
     protected $fillable = [
         'title',
+        'color',
+        'bdd_domain_id'
     ];
 
     public function domain()

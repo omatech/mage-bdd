@@ -29,5 +29,5 @@
 
 @section('scripts')
     @parent
-    @include('mage-bdd::partials.components.feature.script')
+    @include('mage-bdd::partials.components.feature.script', ['feature' => $feature])
 @endsection

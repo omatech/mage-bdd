@@ -38,7 +38,7 @@ class BddDomainController extends Controller
     
     public function store(DomainCreateRequest $request)
     {
-        $this->bddDomainRepository->query()->insert(request()->only(['color', 'name']));
+        $this->bddDomainRepository->query()->insert($request->only(['color', 'name']));
 
         return redirect()->route('mage-bdd.domain.index');
     }
@@ -52,7 +52,7 @@ class BddDomainController extends Controller
 
     public function update(DomainUpdateRequest $request, $id)
     {
-        $this->bddDomainRepository->update(request()->only(['color', 'name']), $id);
+        $this->bddDomainRepository->update($request->only(['color', 'name']), $id);
 
         return redirect()->route('mage-bdd.domain.index');
     }

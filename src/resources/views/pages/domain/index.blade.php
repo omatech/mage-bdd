@@ -40,7 +40,7 @@
                                                         <span class="info-box-icon bg-{{ $feature->color }}"><i class="far fa-"></i></span>
 
                                                         <div class="info-box-content">
-                                                            <span class="info-box-text"><a href="{{ route('mage-bdd.feature.show') }}">{{ $feature->title }} </a></span>
+                                                            <span class="info-box-text"><a href="{{ route('mage-bdd.feature.edit', ['id' => $feature->id]) }}">{{ $feature->title }} </a></span>
                                                             <span class="info-box-number">{{ $feature->scenarios()->count() }} Scenarios</span>
                                                         </div>
                                                         <!-- /.info-box-content -->
@@ -52,7 +52,7 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-3 col-sm-6 col-12">
-                                                        <a class="info-box bg-dark" href="{{ route('mage-bdd.feature.create') }}">
+                                                        <a class="info-box bg-dark" href="{{ route('mage-bdd.feature.create', ['domain_id' => $domain->id]) }}">
                                                             <span class="info-box-icon bg-primary"><i class="fa fa-plus"></i></span>
                                                             <div class="info-box-content">
                                                                 <span class="info-box-number">@lang('New Feature')</span>
@@ -64,7 +64,7 @@
                                                 </div>
                                             @elseif($loop->last && $loop->iteration % 4 != 0)
                                                     <div class="col-md-3 col-sm-6 col-12">
-                                                        <a class="info-box bg-dark" href="{{ route('mage-bdd.feature.create') }}">
+                                                        <a class="info-box bg-dark" href="{{ route('mage-bdd.feature.create', ['domain_id' => $domain->id]) }}">
                                                             <span class="info-box-icon bg-primary"><i class="fa fa-plus"></i></span>
                                                             <div class="info-box-content">
                                                                 <span class="info-box-number">@lang('New Feature')</span>
@@ -81,7 +81,7 @@
                                     @empty
                                         <div class="row">
                                             <div class="col-md-3 col-sm-6 col-12">
-                                                <a class="info-box bg-dark" href="{{ route('mage-bdd.feature.create') }}">
+                                                <a class="info-box bg-dark" href="{{ route('mage-bdd.feature.create', ['domain_id' => $domain->id]) }}">
                                                     <span class="info-box-icon bg-primary"><i class="fa fa-plus"></i></span>
                                                     <div class="info-box-content">
                                                         <span class="info-box-number">@lang('New Feature')</span>
