@@ -25,7 +25,10 @@ class FeatureUpdateRequest extends FormRequest
     {
         return [
             'bdd_domain_id' => 'required|exists:bdd_domains,id',
-            'title' => 'required'
+            'title' => 'required',
+            'as_a' => 'required',
+            'i_want' => 'required',
+            'so_that' => 'required'
         ];
     }
 }

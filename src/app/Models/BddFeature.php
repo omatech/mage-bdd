@@ -14,7 +14,10 @@ class BddFeature extends Model
     protected $fillable = [
         'title',
         'color',
-        'bdd_domain_id'
+        'bdd_domain_id',
+        'as_a',
+        'i_want',
+        'so_that'
     ];
 
     public function domain()
@@ -25,10 +28,5 @@ class BddFeature extends Model
     public function scenarios()
     {
         return $this->hasMany(BddScenario::class);
-    }
-
-    public function lines()
-    {
-        return $this->morphMany(BddLine::class, 'lineable');
     }
 }

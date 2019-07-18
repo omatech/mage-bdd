@@ -11,7 +11,7 @@ $factory->define(BddDomain::class, function (Faker $faker) {
 
     return [
         'name' => $faker->word,
-        'color' => $faker->randomElement(['primary', 'info', 'success', 'warning', 'danger'])
+        'color' => $faker->randomElement(['primary', 'info', 'success', 'warning', 'danger', 'secondary'])
     ];
 });
 
@@ -19,7 +19,10 @@ $factory->define(BddFeature::class, function (Faker $faker) {
 
     return [
         'title' => $faker->word,
-        'color' => $faker->randomElement(['primary', 'info', 'success', 'warning', 'danger', 'gray', 'black'])
+        'color' => $faker->randomElement(['primary', 'info', 'success', 'warning', 'danger', 'secondary']),
+        'as_a' => $faker->jobTitle,
+        'i_want' => $faker->sentence,
+        'so_that' => $faker->sentence,
     ];
 });
 
@@ -34,6 +37,6 @@ $factory->define(BddLine::class, function (Faker $faker) {
 
     return [
         'text' => $faker->text(),
-        'type' => $faker->randomElement(['as_a', 'i_want', 'so_that', 'given', 'when', 'then'])
+        'type' => $faker->randomElement(['given', 'when', 'then'])
     ];
 });

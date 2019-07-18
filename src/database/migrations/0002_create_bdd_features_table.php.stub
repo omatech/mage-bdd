@@ -18,6 +18,9 @@ class CreateBddFeaturesTable extends Migration
             $table->unsignedBigInteger('bdd_domain_id');
             $table->string('title');
             $table->string('color')->default('primary');
+            $table->longText('as_a');
+            $table->longText('i_want');
+            $table->longText('so_that');
             $table->timestamps();
             $table->softDeletes();
 

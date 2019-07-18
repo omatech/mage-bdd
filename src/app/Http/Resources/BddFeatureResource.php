@@ -18,8 +18,10 @@ class BddFeatureResource extends JsonResource
             'bdd_domain_id' => $this->bdd_domain_id,
             'title' => $this->title,
             'color' => $this->color,
+            'as_a' => $this->as_a,
+            'i_want' => $this->i_want,
+            'so_that' => $this->so_that,
             'scenarios' => BddScenarioResource::collection($this->scenarios),
-            'lines' => BddLineResource::collection($this->lines)
         ];
     }
 }

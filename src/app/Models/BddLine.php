@@ -12,11 +12,26 @@ class BddLine extends Model
     protected $table = 'bdd_lines';
 
     protected $fillable = [
-        'type', 'text', 'lineable_type', 'lineable_id'
+        'type', 'text', 'bdd_scenario_id'
     ];
 
-    public function lineable()
+    public function scenario()
     {
-        return $this->morphTo();
+        return $this->belongsTo(BddScenario::class);
+    }
+
+    public function scopeGivenLine($query)
+    {
+        return $query->where('type', 'given');
+    }
+
+    public function scopeWhenLine($query)
+    {
+        return $query->where('type', 'when');
+    }
+
+    public function scopeThenLine($query)
+    {
+        return $query->where('type', 'then');
     }
 }

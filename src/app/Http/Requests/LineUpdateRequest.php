@@ -4,7 +4,7 @@ namespace Omatech\MageBdd\App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FeatureCreateRequest extends FormRequest
+class LineUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,8 @@ class FeatureCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'bdd_domain_id' => 'required|exists:bdd_domains,id',
-            'title' => 'required',
-            'as_a' => 'required',
-            'i_want' => 'required',
-            'so_that' => 'required'
+            'bdd_scenario_id' => 'required|exists:bdd_scenarios,id',
+            'text' => 'required',
         ];
     }
 }

@@ -17,6 +17,7 @@ class BddLineResource extends JsonResource
             'id' => $this->id,
             'type' => $this->type,
             'text' => $this->text,
+            'bdd_scenario_id' => $this->bdd_scenario_id
         ];
     }
 }

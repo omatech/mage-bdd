@@ -17,9 +17,9 @@
                     </div>
                 </div>
                 <div class="card-body bg-dark">
-                    @include('mage-bdd::partials.components.feature.header')
+                    @include('mage-bdd::partials.components.feature.body')
                 </div>
-                <div class="card-footer" v-show="feature.id !== undefined">
+                <div class="card-footer bg-dark" v-show="feature.id !== undefined">
                     @include('mage-bdd::partials.components.feature.footer')
                 </div>
             </div>

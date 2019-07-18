@@ -6,15 +6,10 @@ namespace Omatech\MageBdd\App\Http\Controllers;
 use Omatech\MageBdd\App\Http\Requests\FeatureCreateRequest;
 use Omatech\MageBdd\App\Http\Requests\FeatureUpdateRequest;
 use Omatech\MageBdd\App\Http\Resources\BddFeatureResource;
-use Omatech\MageBdd\App\Repositories\BddDomainRepository;
 use Omatech\MageBdd\App\Repositories\BddFeatureRepository;
 
 class BddFeatureController extends Controller
 {
-    /**
-     * @var BddDomainRepository
-     */
-    private $bddDomainRepository;
     /**
      * @var BddFeatureRepository
      */
@@ -23,13 +18,11 @@ class BddFeatureController extends Controller
 
     /**
      * BddController constructor.
-     * @param BddDomainRepository $bddDomainRepository
      * @param BddFeatureRepository $bddFeatureRepository
      */
-    public function __construct(BddDomainRepository $bddDomainRepository, BddFeatureRepository $bddFeatureRepository)
+    public function __construct(BddFeatureRepository $bddFeatureRepository)
     {
 
-        $this->bddDomainRepository = $bddDomainRepository;
         $this->bddFeatureRepository = $bddFeatureRepository;
     }
     
@@ -40,7 +33,7 @@ class BddFeatureController extends Controller
 
     public function store(FeatureCreateRequest $request)
     {
-        $feature = $this->bddFeatureRepository->create($request->only(['color', 'title', 'bdd_domain_id']));
+        $feature = $this->bddFeatureRepository->create($request->only(['color', 'title', 'bdd_domain_id', 'as_a', 'i_want', 'so_that', ]));
 
         if($request->ajax()){
 
@@ -59,9 +52,10 @@ class BddFeatureController extends Controller
 
     public function update(FeatureUpdateRequest $request, $id)
     {
-        $feature_id = $this->bddFeatureRepository->update($request->only(['color', 'title']), $id);
 
-        $feature = $this->bddFeatureRepository->find($feature_id);
+        $this->bddFeatureRepository->update($request->only(['color', 'title', 'as_a', 'i_want', 'so_that']), $id);
+
+        $feature = $this->bddFeatureRepository->find($id);
 
         if($request->ajax()){
 
@@ -70,7 +64,4 @@ class BddFeatureController extends Controller
 
         return redirect()->route('mage-bdd.domain.index');
     }
-
-
-
 }

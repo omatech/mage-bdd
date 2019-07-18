@@ -25,9 +25,6 @@ class BddDomainSeeder extends Seeder
                 $feature->scenarios()->each(function($scenario){
                     $scenario->lines()->saveMany(factory(BddLine::class, random_int(4,8))->make());
                 });
-
-                $feature->lines()->saveMany(factory(BddLine::class, random_int(4,8))->make());
-
             });
         });
     }

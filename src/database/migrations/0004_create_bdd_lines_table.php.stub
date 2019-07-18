@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBddLinesTable extends Migration
+class CreateBddZLinesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,11 +15,17 @@ class CreateBddLinesTable extends Migration
     {
         Schema::create('bdd_lines', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->morphs('lineable');
-            $table->enum('type', ['as_a', 'i_want', 'so_that', 'given', 'when', 'then',]);
+            $table->unsignedBigInteger('bdd_scenario_id');
+            $table->enum('type', ['given', 'when', 'then']);
             $table->longText('text');
+            $table->integer('order')->default(1);
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('bdd_scenario_id')
+                            ->references('id')
+                            ->on('bdd_scenarios')
+                            ->onDelete('cascade');
         });
     }
 

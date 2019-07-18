@@ -25,14 +25,14 @@ class MigrationServiceProvider extends MageMigrationServiceProvider
     {
         $create_bdd_domains_table = __DIR__ . '/../../database/migrations/0001_create_bdd_domains_table.php.stub';
         $create_bdd_features_table = __DIR__ . '/../../database/migrations/0002_create_bdd_features_table.php.stub';
-        $create_bdd_lines_table = __DIR__ . '/../../database/migrations/0003_create_bdd_lines_table.php.stub';
-        $create_bdd_stories_table = __DIR__ . '/../../database/migrations/0004_create_bdd_scenarios_table.php.stub';
+        $create_bdd_stories_table = __DIR__ . '/../../database/migrations/0003_create_bdd_scenarios_table.php.stub';
+        $create_bdd_lines_table = __DIR__ . '/../../database/migrations/0004_create_bdd_lines_table.php.stub';
 
         $this->publishes([
             $create_bdd_domains_table => $this->getMigrationFileName(new Filesystem(), 'create_bdd_domains_table'),
             $create_bdd_features_table => $this->getMigrationFileName(new Filesystem(), 'create_bdd_features_table'),
-            $create_bdd_lines_table => $this->getMigrationFileName(new Filesystem(), 'create_bdd_lines_table'),
-            $create_bdd_stories_table => $this->getMigrationFileName(new Filesystem(), 'create_bdd_scenarios_table')
+            $create_bdd_stories_table => $this->getMigrationFileName(new Filesystem(), 'create_bdd_scenarios_table'),
+            $create_bdd_lines_table => $this->getMigrationFileName(new Filesystem(), 'create_bdd_z_lines_table')
         ]);
     }
 }

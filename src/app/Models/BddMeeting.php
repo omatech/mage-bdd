@@ -5,7 +5,7 @@ namespace Omatech\MageBdd\App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class BddScenario extends Model
+class BddMeeting extends Model
 {
     use SoftDeletes;
 
@@ -13,16 +13,10 @@ class BddScenario extends Model
 
     protected $fillable = [
         'title',
-        'bdd_feature_id'
     ];
 
-    public function feature()
+    public function domains()
     {
-        return $this->belongsTo(BddFeature::class);
-    }
-
-    public function lines()
-    {
-        return $this->hasMany(BddLine::class);
+        return $this->hasMany(BddDomain::class);
     }
 }

@@ -17,7 +17,9 @@ class BddScenarioResource extends JsonResource
             'id' => $this->id,
             'bdd_feature_id' => $this->bdd_feature_id,
             'title' => $this->title,
-            'lines' => BddLineResource::collection($this->lines)
+            'given' => BddLineResource::collection($this->lines()->givenLine()->get()),
+            'when' => BddLineResource::collection($this->lines()->whenLine()->get()),
+            'then' => BddLineResource::collection($this->lines()->thenLine()->get())
         ];
     }
 }
